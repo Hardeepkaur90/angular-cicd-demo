@@ -17,9 +17,9 @@ jobs:
       - uses: actions/cache@v3 # this allows for re-using node_modules caching, making builds a bit faster.
         with:
           path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          key: ${{runner.os}}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node-
+            ${{runner.os}}-node-
 - name: NPM Install
   run: npm install
 - name: NPM Install Angular
@@ -37,7 +37,7 @@ jobs:
 - name: Deploy to my EC2 instance
   uses: easingthemes/ssh-deploy@v2.1.5
   with:
-    SSH_PRIVATE_KEY: ${{sectets.SSH_PRIVATE_KEY}}
+    SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
     SOURCE: "dist/angular-cicd-demo/"
     REMOTE_HOST: "ec2-35-154-154-84.ap-south-1.compute.amazonaws.com"
     REMOTE_USER: "ubuntu"
