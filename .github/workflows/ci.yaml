@@ -38,7 +38,7 @@ jobs:
         uses: easingthemes/ssh-deploy@v2.1.5
         with:
           SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
-          SOURCE: "dist/angular-cicd-demo/"
+          SOURCE: "dist/demoangular/"
           REMOTE_HOST: "ec2-35-154-154-84.ap-south-1.compute.amazonaws.com"
           REMOTE_USER: "ubuntu"
           Target: "/var/www/html/angular-cicd-demo/"
