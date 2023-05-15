@@ -4,6 +4,7 @@ on:
     branches: [master]
 jobs:
   build:
+    # using Ubuntu
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -13,7 +14,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "12.20.2"
-      - uses: actions/cache@v3
+      - uses: actions/cache@v3 # this allows for re-using node_modules caching, making builds a bit faster.
         with:
           path: ~/.npm
           key: ${{runner.os}}-node-${{ hashFiles('**/package-lock.json') }}
