@@ -18,28 +18,28 @@ jobs:
         with:
           path: ~/.npm
           key: ${{runner.os}}-node-${{ hashFiles('**/package-lock.json') }}
-- name: NPM Install
-  run: npm install
-- name: NPM Install Angular
-  run: npm install -g @angular/cli@7.3.10
-- name: Lint
-  run: npm run lint
-- name: Format
-  run: npm run format
-- name: NPM build Angular Production
-  run: npm run build:prod
-- name: Test
-  run: npm run test:ci
-- name: Test coverage
-  run: npm run test:ci:cov
-- name: Deploy to my EC2 instance
-  uses: easingthemes/ssh-deploy@v2.1.5
-  with:
-    SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
-    SOURCE: "dist/angular-cicd-demo/"
-    REMOTE_HOST: "ec2-35-154-154-84.ap-south-1.compute.amazonaws.com"
-    REMOTE_USER: "ubuntu"
-    Target: "/var/www/html/angular-cicd-demo/"
+      - name: NPM Install
+        run: npm install
+      - name: NPM Install Angular
+        run: npm install -g @angular/cli@7.3.10
+      - name: Lint
+        run: npm run lint
+      - name: Format
+        run: npm run format
+      - name: NPM build Angular Production
+        run: npm run build:prod
+      - name: Test
+        run: npm run test:ci
+      - name: Test coverage
+        run: npm run test:ci:cov
+      - name: Deploy to my EC2 instance
+        uses: easingthemes/ssh-deploy@v2.1.5
+        with:
+          SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
+          SOURCE: "dist/angular-cicd-demo/"
+          REMOTE_HOST: "ec2-35-154-154-84.ap-south-1.compute.amazonaws.com"
+          REMOTE_USER: "ubuntu"
+          Target: "/var/www/html/angular-cicd-demo/"
 
 
 
