@@ -1,6 +1,4 @@
-
 name: CI for Angular
-
 on:
   pull_request:
     branches: [master]
