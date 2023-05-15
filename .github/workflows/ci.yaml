@@ -14,7 +14,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "12.20.2"
-      - uses: actions/cache@v3 # this allows for re-using node_modules caching, making builds a bit faster.
+      - uses: actions/cache@v3
         with:
           path: ~/.npm
           key: ${{runner.os}}-node-${{ hashFiles('**/package-lock.json') }}
@@ -40,4 +40,3 @@ jobs:
           REMOTE_HOST: "ec2-35-154-154-84.ap-south-1.compute.amazonaws.com"
           REMOTE_USER: "ubuntu"
           Target: "/var/www/html/angular-cicd-demo/"
-
