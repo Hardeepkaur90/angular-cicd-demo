@@ -40,3 +40,4 @@ jobs:
           REMOTE_HOST: "ec2-35-154-154-84.ap-south-1.compute.amazonaws.com"
           REMOTE_USER: "ubuntu"
           Target: "/var/www/html/angular-cicd-demo/"
+
