@@ -27,7 +27,7 @@ jobs:
       - name: NPM build Angular Production
         run: npm run build:prod
       - name: Deploy to my EC2 instance
-        uses: Hardeepkaur90/angular-cicd-demo
+        uses: Hardeepkaur90/angular-cicd-demo@dist
         with:
           SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
           SOURCE: "dist/demoangular/"
